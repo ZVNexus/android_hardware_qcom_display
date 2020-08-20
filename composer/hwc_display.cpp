@@ -684,9 +684,10 @@ void HWCDisplay::BuildLayerStack() {
     }
 
 #ifdef FOD_ZPOS
-    if (hwc_layer->IsFodPressed()) {
-      layer->flags.fod_pressed = true;
-    }
+    if (hwc_layer->IsFodPressed())
+      layer_stack_.flags.fod_pressed = true;
+    else
+      layer_stack_.flags.fod_pressed = false;
 #endif
 
     if (!hwc_layer->IsDataSpaceSupported()) {
